@@ -32,6 +32,7 @@
 			}
 			[data-sigil*=comment-body],
 			.story_body_container {
+				-moz-user-select: text;
 				user-select: text;
 			}
 		`;
