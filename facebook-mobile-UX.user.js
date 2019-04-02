@@ -1,8 +1,8 @@
 ﻿// ==UserScript==
 // @name         Facebook Mobile UX
 // @namespace    pl.enux.facebook.mobile
-// @version      0.0.3
-// @description  [0.0.3] Poprawki UX dla Facebooka w wersji mobilnej.
+// @version      0.1.0
+// @description  [0.1.0] Poprawki UX dla Facebooka w wersji mobilnej.
 // @author       Eccenux
 // @match        https://m.facebook.com/*
 // @grant        GM_addStyle
@@ -21,21 +21,26 @@
 		Add CSS.
 	*/
 	function addCss() {
-		// m-conversation-guide = emoji stickers answers
-		// #header-notices = install f.lite
 		var cssText = `
+			// emoji stickers answers
 			[data-sigil*=m-conversation-guide] {
 				display:none !important;
 			}
+			// install f.lite
 			#header-notices {
 				display:none !important;
 			}
+			// answers with face-stickers
 			[data-sigil*=comment-body],
 			.story_body_container {
 				-moz-user-select: text;
 				user-select: text;
 			}
-		`;
+			// messenger nagging
+			#messages_jewel {
+				display:none !important;
+			}
+		`.replace(/\n[ \t]*\/\/.+/g, '');	// remove inline comments
 		GM_addStyle(cssText);
 	}
 	addCss();
