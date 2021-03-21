@@ -1,8 +1,8 @@
 ﻿// ==UserScript==
 // @name         Facebook Mobile UX
 // @namespace    pl.enux.facebook.mobile
-// @version      0.1.0
-// @description  [0.1.0] Poprawki UX dla Facebooka w wersji mobilnej.
+// @version      0.1.1
+// @description  [0.1.1] Poprawki UX dla Facebooka w wersji mobilnej.
 // @author       Eccenux
 // @match        https://m.facebook.com/*
 // @grant        GM_addStyle
@@ -36,8 +36,11 @@
 				-moz-user-select: text;
 				user-select: text;
 			}
-			// messenger nagging
-			#messages_jewel {
+			// messenger nagging and other top navi
+			#messages_jewel,
+            #videos_tab_jewel,
+            #marketplace_jewel
+            {
 				display:none !important;
 			}
 		`.replace(/\n[ \t]*\/\/.+/g, '');	// remove inline comments
